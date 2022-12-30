@@ -36,9 +36,11 @@ const Navbar = () => {
                 </ul>
                 </li>
             </ul>
+            
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                
+            <li className='nav-link'><Link className='text-white ' to="signup">Signup</Link></li>
                 <li className="nav-item">
+                
                 <Link className="nav-link active" aria-current="page" to="cart"><Badge count={count.length}><BsCart4 className='fs-2 text-white'/></Badge></Link>
                 </li>
             </ul>

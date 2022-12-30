@@ -4,6 +4,7 @@ import { useGetMyDataByIdQuery } from "../../services/fetchDataFromApi";
 import { add } from "../../services/addRemoveSlice";
 import { useDispatch } from "react-redux";
 import { Spin } from "antd";
+import { Rate } from 'antd';
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
@@ -23,9 +24,9 @@ const ProductDetails = () => {
             <Spin tip="Loading" />
           </h3>
         ) : (
-          <div className="card mb-3 m-auto" style={{ width: "50%" }}>
+          <div className="card mb-3 m-auto" style={{ width: "100%",alignItems:'center' }}>
             <div className="row g-0">
-              <div className="col-md-6 col-lg-6 py-4 px-3 ">
+              <div className="col-md-4 col-lg-4 py-4 px-3 ">
                 <img
                   src={data.images[0]}
                   className="img-fluid rounded-start" 
@@ -33,7 +34,7 @@ const ProductDetails = () => {
                   
                 />
               </div>
-              <div className="col-md-6 py-4">
+              <div className="col-md-8 col-lg-8 py-4 pt-5">
                 <div className="card-body align-middle">
                   <h3 className="card-title fs-4 fw-bold">{data.title}</h3>
                   <p className="card-text">{data.description}</p>
@@ -48,11 +49,11 @@ const ProductDetails = () => {
                       </del>
                     </small>
                   </p>
-                  <div>
-                    <p style={{ fontSize: "12px","fontWeight":"bold" }}>
+                  <div className="d-flex py-4">
+                    <p style={{ fontSize: "14px","fontWeight":"bold" }}>
                       {data.discountPercentage}% Off
                     </p>
-                    <p></p>
+                    <h5 className="card-title ms-4 align-items-center "><Rate allowHalf  defaultValue={data.rating} /></h5>
                   </div>
                   <button className="btn btn-warning text-bold" onClick={() => dispatch(add(data))}>
                     Add To Cart
